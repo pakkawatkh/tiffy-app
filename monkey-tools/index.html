@@ -421,6 +421,89 @@
       }
     }
 
+    /* Video & Interactive Demo Theater */
+    .demo-tabs-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .demo-tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .demo-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .demo-tab-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+    }
+    .demo-pane {
+      display: none;
+    }
+    .demo-pane.active {
+      display: block;
+    }
+    .video-wrapper {
+      position: relative;
+      background: #090b12;
+      border-radius: 0 0 20px 20px;
+      overflow: hidden;
+    }
+    .demo-video {
+      width: 100%;
+      max-height: 520px;
+      display: block;
+      object-fit: contain;
+      background: #000;
+    }
+    .video-info-bar {
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .video-empty-state {
+      padding: 60px 24px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(20, 24, 38, 0.6) 0%, rgba(11, 13, 20, 0.9) 100%);
+    }
+    .video-play-pulse {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
+      margin-bottom: 18px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .video-play-pulse:hover {
+      transform: scale(1.08);
+    }
+
     /* Preview Cards Inside Mockup */
     .preview-card {
       background: rgba(30, 33, 48, 0.65);
@@ -819,8 +902,8 @@
         <span>🔒 100% Private &amp; Offline Ready</span>
       </div>
 
-      <!-- Hero Visual Mockup -->
-      <div class="hero-visual">
+      <!-- Hero Visual / Video Demo Showcase -->
+      <div class="hero-visual" id="demo">
         <div class="mockup-window">
           <div class="mockup-header">
             <div class="traffic-lights">
@@ -828,56 +911,115 @@
               <div class="traffic-dot dot-min"></div>
               <div class="traffic-dot dot-max"></div>
             </div>
-            <div class="mockup-title">monkey-tools — macOS Acrylic Studio</div>
-            <div style="width: 48px;"></div>
-          </div>
 
-          <div class="mockup-body">
-            <!-- Left: Clipboard History Window -->
-            <div class="preview-card" id="clipboard">
-              <div class="preview-card-header">
-                <span class="preview-card-tag">Clipboard History</span>
-                <span class="preview-shortcut">⌘ + ⇧ + V</span>
-              </div>
-              <div class="fake-item active">
-                <span class="fake-item-text">📌 API_SECRET_KEY=mk_live_89234f98...</span>
-                <span class="fake-time">Pinned</span>
-              </div>
-              <div class="fake-item">
-                <span class="fake-item-text">🖼️ Screenshot 2026-10-27 at 13.40.png</span>
-                <span class="fake-time">2m ago</span>
-              </div>
-              <div class="fake-item">
-                <span class="fake-item-text">https://github.com/pakkawatkh/monkey-tools</span>
-                <span class="fake-time">15m ago</span>
-              </div>
-              <div class="fake-item">
-                <span class="fake-item-text">"The quick brown fox jumps over the lazy dog"</span>
-                <span class="fake-time">1h ago</span>
-              </div>
+            <!-- Demo Tabs Switcher -->
+            <div class="demo-tabs-bar">
+              <button class="demo-tab-btn active" data-tab="video" onclick="switchDemoTab('video')">
+                🎬 Video Demo
+              </button>
+              <button class="demo-tab-btn" data-tab="clipboard" onclick="switchDemoTab('clipboard')">
+                📋 Clipboard History
+              </button>
+              <button class="demo-tab-btn" data-tab="translator" onclick="switchDemoTab('translator')">
+                🌐 Selection Translator
+              </button>
             </div>
 
-            <!-- Right: Selection Translator Popover -->
-            <div class="preview-card" id="translator">
-              <div class="preview-card-header">
-                <span class="preview-card-tag trans">Selection Translator</span>
-                <span class="preview-shortcut">Highlight &amp; Click 🌐</span>
+            <div style="font-size: 0.75rem; color: #64748b; font-weight: 600;">
+              60 FPS • Native Swift
+            </div>
+          </div>
+
+          <!-- Tab 1: Video Demo Player -->
+          <div class="demo-pane active" id="pane-video">
+            <div class="video-wrapper">
+              <video id="demo-video-player" class="demo-video" controls autoplay loop muted playsinline poster="assets/icon.png">
+                <source src="assets/demo.mp4" type="video/mp4">
+                <source src="assets/demo.webm" type="video/webm">
+                <source src="assets/demo.mov" type="video/quicktime">
+                Your browser does not support HTML5 video.
+              </video>
+
+              <div id="video-placeholder" class="video-empty-state" style="display: none;">
+                <div class="video-play-pulse" onclick="switchDemoTab('clipboard')">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="#040814" style="margin-left: 4px;">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <h3 style="font-size: 1.3rem; margin-bottom: 8px;">See Monkey Tools in Motion</h3>
+                <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 20px; font-size: 0.92rem;">
+                  Experience the liquid-smooth acrylic clipboard history (<code>⌘ + ⇧ + V</code>) and instant floating translator.
+                </p>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                  <button class="btn-primary" onclick="switchDemoTab('clipboard')" style="padding: 10px 22px; font-size: 0.9rem;">
+                    Launch Clipboard Simulation →
+                  </button>
+                  <button class="btn-secondary" onclick="switchDemoTab('translator')" style="padding: 10px 22px; font-size: 0.9rem;">
+                    Try Translator Demo →
+                  </button>
+                </div>
               </div>
-              <div class="fake-trans-box">
-                <div class="fake-trans-source">
-                  <strong>English (Detected):</strong><br>
-                  "Seamlessly unites clipboard history and instant translation."
+
+              <div class="video-info-bar">
+                <span>🎬 <strong>Live Recording:</strong> macOS Sequoia • Fluid 120Hz ProMotion • Pure Native Swift</span>
+                <span>🍏 Universal Binary (M1/M2/M3/M4 &amp; Intel)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Interactive Clipboard Mockup -->
+          <div class="demo-pane" id="pane-clipboard">
+            <div class="mockup-body" style="grid-template-columns: 1fr;">
+              <div class="preview-card" id="clipboard">
+                <div class="preview-card-header">
+                  <span class="preview-card-tag">Clipboard History</span>
+                  <span class="preview-shortcut">Press ⌘ + ⇧ + V Anywhere</span>
                 </div>
-                <div class="fake-trans-arrow">
-                  <span>↓ Dual-Engine AI (Apple / Google)</span>
+                <div class="fake-item active">
+                  <span class="fake-item-text">📌 API_SECRET_KEY=mk_live_89234f98...</span>
+                  <span class="fake-time">Pinned</span>
                 </div>
-                <div class="fake-trans-target">
-                  <strong>Thai (ภาษาไทย):</strong><br>
-                  "ผสานประวัติการคัดลอกและการแปลภาษาทันทีเข้าด้วยกันอย่างราบรื่น"
+                <div class="fake-item">
+                  <span class="fake-item-text">🖼️ Screenshot 2026-10-31 at 01.20.png</span>
+                  <span class="fake-time">Just now</span>
+                </div>
+                <div class="fake-item">
+                  <span class="fake-item-text">https://pakkawatkh.github.io/tiffy-app/</span>
+                  <span class="fake-time">15m ago</span>
+                </div>
+                <div class="fake-item">
+                  <span class="fake-item-text">"High-performance macOS productivity tools handcrafted with pure Swift"</span>
+                  <span class="fake-time">1h ago</span>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- Tab 3: Interactive Translator Mockup -->
+          <div class="demo-pane" id="pane-translator">
+            <div class="mockup-body" style="grid-template-columns: 1fr;">
+              <div class="preview-card" id="translator">
+                <div class="preview-card-header">
+                  <span class="preview-card-tag trans">Selection Translator</span>
+                  <span class="preview-shortcut">Highlight Any Text ➔ Click 🌐</span>
+                </div>
+                <div class="fake-trans-box">
+                  <div class="fake-trans-source">
+                    <strong>English (Detected):</strong><br>
+                    "High-performance, privacy-focused Mac utilities designed to elevate your daily workflow."
+                  </div>
+                  <div class="fake-trans-arrow">
+                    <span>↓ Dual-Engine AI (Apple / Google Neural)</span>
+                  </div>
+                  <div class="fake-trans-target">
+                    <strong>Thai (ภาษาไทย):</strong><br>
+                    "เครื่องมือเพิ่มประสิทธิภาพสำหรับ Mac ความเร็วสูง เน้นความเป็นส่วนตัว ออกแบบมาเพื่อยกระดับการทำงานทุกวันของคุณ"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -1099,6 +1241,45 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function switchDemoTab(tabId) {
+      document.querySelectorAll('.demo-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+      });
+      document.querySelectorAll('.demo-pane').forEach(pane => {
+        pane.classList.toggle('active', pane.id === 'pane-' + tabId);
+      });
+      const video = document.getElementById('demo-video-player');
+      if (video) {
+        if (tabId === 'video') {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      }
+    }
+
+    // Smart Video Fallback & Auto-Detection
+    window.addEventListener('DOMContentLoaded', () => {
+      const video = document.getElementById('demo-video-player');
+      const placeholder = document.getElementById('video-placeholder');
+      if (video && placeholder) {
+        video.addEventListener('error', () => {
+          video.style.display = 'none';
+          placeholder.style.display = 'block';
+        }, true);
+
+        // Check if video source exists
+        setTimeout(() => {
+          if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE || (video.readyState === 0 && !video.videoWidth)) {
+            video.style.display = 'none';
+            placeholder.style.display = 'block';
+          }
+        }, 1800);
+      }
+    });
+  </script>
 
 </body>
 </html>
