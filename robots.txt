@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://pakkawatkh.github.io/monkey-tools/sitemap.xml
