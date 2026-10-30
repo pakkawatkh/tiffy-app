@@ -1260,23 +1260,37 @@
       }
     }
 
-    // Smart Video Fallback & Auto-Detection
+    // Reliable Autoplay & Playback Initializer
     window.addEventListener('DOMContentLoaded', () => {
       const video = document.getElementById('demo-video-player');
-      const placeholder = document.getElementById('video-placeholder');
-      if (video && placeholder) {
-        video.addEventListener('error', () => {
-          video.style.display = 'none';
-          placeholder.style.display = 'block';
-        }, true);
+      if (video) {
+        video.muted = true;
+        video.defaultMuted = true;
+        
+        // Attempt autoplay immediately
+        const startPlay = () => {
+          video.play().catch(err => {
+            console.log("Autoplay was deferred:", err);
+          });
+        };
 
-        // Check if video source exists
-        setTimeout(() => {
-          if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE || (video.readyState === 0 && !video.videoWidth)) {
-            video.style.display = 'none';
-            placeholder.style.display = 'block';
-          }
-        }, 1800);
+        if (video.readyState >= 2) {
+          startPlay();
+        } else {
+          video.addEventListener('canplay', startPlay, { once: true });
+          video.addEventListener('loadeddata', startPlay, { once: true });
+        }
+
+        // Also start playback on first user touch/click anywhere on page
+        const handleUserGesture = () => {
+          video.play().catch(() => {});
+          window.removeEventListener('click', handleUserGesture);
+          window.removeEventListener('keydown', handleUserGesture);
+          window.removeEventListener('touchstart', handleUserGesture);
+        };
+        window.addEventListener('click', handleUserGesture, { once: true });
+        window.addEventListener('keydown', handleUserGesture, { once: true });
+        window.addEventListener('touchstart', handleUserGesture, { once: true });
       }
     });
   </script>
