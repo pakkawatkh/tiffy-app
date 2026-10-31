@@ -1,8 +1,8 @@
 {
-  "latestVersion": "2.1.3",
+  "latestVersion": "2.1.4",
   "releaseDate": "2026-11-01",
   "downloadUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/monkey-tools-Installer.dmg",
   "zipUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/monkey-tools.zip",
   "pageUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/",
-  "releaseNotes": "Auto-updater verification release (v2.1.3)"
+  "releaseNotes": "Auto-updater verification release (v2.1.4)"
 }
