@@ -122,6 +122,7 @@
     html {
       scroll-behavior: smooth;
       color-scheme: light;
+      overflow-x: hidden;
     }
 
     body {
@@ -868,6 +869,12 @@
       .install-section {
         padding: 36px 20px;
       }
+      .window-url-bar {
+        max-width: 45%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
   </style>
 </head>
@@ -920,7 +927,7 @@
       </h1>
 
       <p class="hero-subtitle">
-        The high-precision scrolling screenshot extension for Chromium browsers. Auto-scrolls full pages onto a Retina 2x canvas, crops with an interactive 8-handle Studio, and copies straight to your clipboard (`⌘V`).
+        The high-precision scrolling screenshot extension for Chromium browsers. Auto-scrolls full pages onto a Retina 2x canvas, crops with an interactive 8-handle Studio, and copies straight to your clipboard (<code>⌘V</code>).
       </p>
 
       <div class="browser-badges">
@@ -1109,6 +1116,9 @@
           </div>
           <div class="step-url-copy" onclick="navigator.clipboard.writeText('brave://extensions')">
             <span>brave://extensions</span>
+          </div>
+          <div class="step-url-copy" onclick="navigator.clipboard.writeText('edge://extensions')">
+            <span>edge://extensions</span>
           </div>
         </div>
 

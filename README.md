@@ -22,7 +22,7 @@
 
 ### 📸 [Capture Scroll](capture-scroll/) (Chromium Browser Extension)
 - **Description**: Full-page scrolling screenshot extension for Google Chrome, Brave Browser, and Microsoft Edge with built-in interactive Crop Studio and instant clipboard copy.
-- **Direct Download**: [capture-scroll-v1.0.0.zip](capture-scroll/capture-scroll-v1.0.0.zip) (v1.0.0, 45 KB)
+- **Direct Download**: [capture-scroll-v1.0.0.zip](capture-scroll/capture-scroll-v1.0.0.zip) (v1.0.0, 119 KB)
 - **Official Website**: [https://pakkawatkh.github.io/tiffy-app/capture-scroll/](https://pakkawatkh.github.io/tiffy-app/capture-scroll/)
 - **GitHub Repository**: [https://github.com/pakkawatkh/tiffy-extension](https://github.com/pakkawatkh/tiffy-extension)
 - **Features**:
