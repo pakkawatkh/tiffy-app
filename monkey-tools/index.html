@@ -938,8 +938,11 @@
             
             <!-- Interactive Switcher Tabs -->
             <div class="demo-tabs-bar">
-              <button class="demo-tab-btn active" data-tab="video" onclick="switchDemoTab('video')">
-                🎬 Video Demo
+              <button class="demo-tab-btn active" data-tab="promo" onclick="switchDemoTab('promo')">
+                🔥 Promo Video
+              </button>
+              <button class="demo-tab-btn" data-tab="demo" onclick="switchDemoTab('demo')">
+                🎬 Feature Demo
               </button>
               <button class="demo-tab-btn" data-tab="clipboard" onclick="switchDemoTab('clipboard')">
                 📋 Clipboard History
@@ -952,33 +955,28 @@
             <span class="mockup-title">60 FPS • Native Swift</span>
           </div>
 
-          <!-- Tab 1: Video Demo Player -->
-          <div class="demo-pane active" id="pane-video">
+          <!-- Tab 1: App Promo Video Player -->
+          <div class="demo-pane active" id="pane-promo">
             <div class="video-wrapper">
-              <video id="demo-video-player" class="demo-video" controls autoplay loop muted playsinline poster="assets/demo-poster.png?v=2.1.0">
-                <source src="assets/demo.mp4?v=2.1.0" type="video/mp4">
+              <video id="promo-video-player" class="demo-video" controls autoplay loop muted playsinline poster="assets/promo-poster.png?v=2.1.0">
+                <source src="assets/promo.mp4?v=2.1.0" type="video/mp4">
                 Your browser does not support HTML5 video.
               </video>
 
-              <div id="video-placeholder" class="video-empty-state" style="display: none;">
-                <div class="video-play-pulse" onclick="switchDemoTab('clipboard')">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff" style="margin-left: 4px;">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-                <h3 style="font-size: 1.3rem; margin-bottom: 8px;">See Monkey Tools in Motion</h3>
-                <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 20px; font-size: 0.92rem;">
-                  Experience the liquid-smooth acrylic clipboard history (<code>⌘ + ⇧ + V</code>) and instant floating translator.
-                </p>
-                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                  <button class="btn-primary" onclick="switchDemoTab('clipboard')" style="padding: 10px 22px; font-size: 0.9rem;">
-                    Launch Clipboard Simulation →
-                  </button>
-                  <button class="btn-secondary" onclick="switchDemoTab('translator')" style="padding: 10px 22px; font-size: 0.9rem;">
-                    Try Translator Demo →
-                  </button>
-                </div>
+              <div class="video-info-bar">
+                <span>🔥 <strong>Official App Promo:</strong> 15-Second Overview • High-Impact Workflow Showcase</span>
+                <span>🍏 Universal Binary (M1/M2/M3/M4 &amp; Intel)</span>
               </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Feature Walkthrough Video Player -->
+          <div class="demo-pane" id="pane-demo">
+            <div class="video-wrapper">
+              <video id="demo-video-player" class="demo-video" controls loop muted playsinline poster="assets/demo-poster.png?v=2.1.0">
+                <source src="assets/demo.mp4?v=2.1.0" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
 
               <div class="video-info-bar">
                 <span>🎬 <strong>Live Recording:</strong> macOS Sequoia • Fluid 120Hz ProMotion • Pure Native Swift</span>
@@ -1274,48 +1272,61 @@
       document.querySelectorAll('.demo-pane').forEach(pane => {
         pane.classList.toggle('active', pane.id === 'pane-' + tabId);
       });
-      const video = document.getElementById('demo-video-player');
-      if (video) {
-        if (tabId === 'video') {
-          video.play().catch(() => {});
+      const promoVideo = document.getElementById('promo-video-player');
+      const demoVideo = document.getElementById('demo-video-player');
+      if (promoVideo) {
+        if (tabId === 'promo') {
+          promoVideo.play().catch(() => {});
         } else {
-          video.pause();
+          promoVideo.pause();
+        }
+      }
+      if (demoVideo) {
+        if (tabId === 'demo') {
+          demoVideo.play().catch(() => {});
+        } else {
+          demoVideo.pause();
         }
       }
     }
 
     // Reliable Autoplay & Playback Initializer
     window.addEventListener('DOMContentLoaded', () => {
-      const video = document.getElementById('demo-video-player');
-      if (video) {
-        video.muted = true;
-        video.defaultMuted = true;
+      const promoVideo = document.getElementById('promo-video-player');
+      const demoVideo = document.getElementById('demo-video-player');
+      
+      const setupVideo = (vid) => {
+        if (!vid) return;
+        vid.muted = true;
+        vid.defaultMuted = true;
         
-        // Attempt autoplay immediately
         const startPlay = () => {
-          video.play().catch(err => {
-            console.log("Autoplay was deferred:", err);
-          });
+          vid.play().catch(() => {});
         };
 
-        if (video.readyState >= 2) {
+        if (vid.readyState >= 2) {
           startPlay();
         } else {
-          video.addEventListener('canplay', startPlay, { once: true });
-          video.addEventListener('loadeddata', startPlay, { once: true });
+          vid.addEventListener('canplay', startPlay, { once: true });
+          vid.addEventListener('loadeddata', startPlay, { once: true });
         }
+      };
 
-        // Also start playback on first user touch/click anywhere on page
-        const handleUserGesture = () => {
-          video.play().catch(() => {});
-          window.removeEventListener('click', handleUserGesture);
-          window.removeEventListener('keydown', handleUserGesture);
-          window.removeEventListener('touchstart', handleUserGesture);
-        };
-        window.addEventListener('click', handleUserGesture, { once: true });
-        window.addEventListener('keydown', handleUserGesture, { once: true });
-        window.addEventListener('touchstart', handleUserGesture, { once: true });
-      }
+      setupVideo(promoVideo);
+      setupVideo(demoVideo);
+
+      // Play active on first user interaction
+      const handleUserGesture = () => {
+        if (promoVideo && document.getElementById('pane-promo').classList.contains('active')) {
+          promoVideo.play().catch(() => {});
+        }
+        window.removeEventListener('click', handleUserGesture);
+        window.removeEventListener('keydown', handleUserGesture);
+        window.removeEventListener('touchstart', handleUserGesture);
+      };
+      window.addEventListener('click', handleUserGesture, { once: true });
+      window.addEventListener('keydown', handleUserGesture, { once: true });
+      window.addEventListener('touchstart', handleUserGesture, { once: true });
     });
   </script>
 
