@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tiffy App — Native macOS Productivity Tools & Suite</title>
-  <meta name="description" content="Discover premium, lightweight, native macOS productivity utilities handcrafted by Pakkawat.k. Explore Monkey Tools and next-generation Mac utilities.">
+  <title>Tiffy App — Native macOS Productivity Tools &amp; Browser Extensions</title>
+  <meta name="description" content="Discover premium, lightweight macOS productivity utilities and Chromium extensions handcrafted by Pakkawat.k. Featuring Monkey Tools and Capture Scroll.">
   <link rel="canonical" href="https://pakkawatkh.github.io/tiffy-app/">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -16,8 +16,8 @@
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pakkawatkh.github.io/tiffy-app/">
-  <meta property="og:title" content="Tiffy App — Native macOS Productivity Tools">
-  <meta property="og:description" content="Handcrafted, ultra-fast native macOS productivity apps. Featuring Monkey Tools clipboard history & smart translator.">
+  <meta property="og:title" content="Tiffy App — Native macOS Tools &amp; Browser Extensions">
+  <meta property="og:description" content="Handcrafted, ultra-fast productivity apps. Featuring Monkey Tools clipboard history &amp; Capture Scroll full-page extension.">
   <meta property="og:image" content="https://pakkawatkh.github.io/tiffy-app/assets/icon.png">
 
   <!-- Schema.org -->
@@ -26,7 +26,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Tiffy App Suite",
-    "operatingSystem": "macOS 13+",
+    "operatingSystem": "macOS 13+, Google Chrome, Brave Browser, Microsoft Edge",
     "applicationCategory": "ProductivityApplication",
     "offers": {
       "@type": "Offer",
@@ -577,6 +577,89 @@
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
     }
 
+    /* Extension Preview Card */
+    .hub-extension-window {
+      background: #0f172a;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #334155;
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      position: relative;
+    }
+
+    .hub-ext-header {
+      background: #1e293b;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hub-ext-body {
+      background: #ffffff;
+      height: 190px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hub-ext-doc-header {
+      background: #f1f5f9;
+      height: 28px;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hub-ext-doc-content {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hub-ext-crop-box {
+      position: absolute;
+      top: 36px;
+      left: 18px;
+      right: 18px;
+      bottom: 22px;
+      border: 2px solid #0284c7;
+      box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.38);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .hub-crop-handle {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background: #ffffff;
+      border: 2px solid #0284c7;
+      border-radius: 2px;
+    }
+    .hub-h-nw { top: -4px; left: -4px; }
+    .hub-h-ne { top: -4px; right: -4px; }
+    .hub-h-sw { bottom: -4px; left: -4px; }
+    .hub-h-se { bottom: -4px; right: -4px; }
+
+    .hub-crop-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(15, 23, 42, 0.88);
+      color: #ffffff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      font-family: ui-monospace, monospace;
+    }
+
     /* Grid for Upcoming Apps */
     .sub-grid {
       display: grid;
@@ -738,12 +821,13 @@
       <a href="./" class="brand-logo">
         <div class="brand-icon">⚡</div>
         <span>Tiffy App</span>
-        <span class="brand-badge">macOS Suite</span>
+        <span class="brand-badge">Suite</span>
       </a>
 
       <ul class="nav-links">
         <li><a href="#apps">Apps Catalog</a></li>
         <li><a href="monkey-tools/">Monkey Tools</a></li>
+        <li><a href="capture-scroll/">Capture Scroll</a></li>
         <li><a href="#philosophy">Design Core</a></li>
       </ul>
 
@@ -763,16 +847,16 @@
     <div class="container">
       <div class="hero-badge">
         <span class="dot"></span>
-        <span>Thoughtfully Handcrafted for macOS • Pure Swift &amp; Native</span>
+        <span>Thoughtfully Handcrafted • macOS Utilities &amp; Chromium Extensions</span>
       </div>
 
       <h1 class="hero-title">
         High-Performance <br>
-        <span class="gradient-text">macOS Productivity Tools</span>
+        <span class="gradient-text">Apps &amp; Extension Suite</span>
       </h1>
 
       <p class="hero-subtitle">
-        A curated suite of fast, lightweight, and privacy-first utilities built to elevate your daily Mac workflow. No bloatware, zero background battery drain.
+        A curated suite of fast, lightweight, and privacy-first utilities built to elevate your daily workflow. Native macOS tools and Chromium browser extensions with zero bloatware.
       </p>
 
       <div class="hero-actions">
@@ -790,7 +874,7 @@
   <section class="container" id="apps">
     <div class="section-header">
       <div class="section-tag">Applications Catalog</div>
-      <h2 class="section-title">Explore Our Mac Utilities</h2>
+      <h2 class="section-title">Explore Our Apps &amp; Extensions</h2>
     </div>
 
     <div class="apps-grid">
@@ -874,7 +958,107 @@
         </div>
       </article>
 
-      <!-- 2. Upcoming Apps Sub-grid -->
+      <!-- 2. Featured Extension: Capture Scroll -->
+      <article class="app-card-featured">
+        <div class="card-ribbon">
+          <span class="badge-status" style="background: #eff6ff; color: #0284c7; border-color: #bfdbfe;">● Released v1.0.0 • Extension</span>
+        </div>
+
+        <div>
+          <div class="app-identity">
+            <img src="capture-scroll/assets/icon128.png" alt="Capture Scroll Icon" class="app-icon">
+            <div class="app-meta">
+              <h3>Capture Scroll</h3>
+              <p>Full-Page Scrolling Screenshot &amp; Studio Cropper</p>
+            </div>
+          </div>
+
+          <p class="app-desc">
+            Automatically sweeps through the full page height and stitches crisp high-DPI canvases. Features sticky header protection, an 8-direction interactive Crop Studio, and one-click <code>⌘V</code> clipboard copy for Figma, Slack, and Notes.
+          </p>
+
+          <div class="feature-tags">
+            <span class="feature-tag">📸 Auto-Stitch Canvas</span>
+            <span class="feature-tag">✂️ 8-Handle Studio Cropper</span>
+            <span class="feature-tag">📋 Direct ⌘V Copy</span>
+            <span class="feature-tag">🖥️ Retina 2x Crisp</span>
+            <span class="feature-tag">⚡ Manifest V3</span>
+            <span class="feature-tag">🔒 100% Offline &amp; Private</span>
+          </div>
+
+          <div class="app-actions">
+            <a href="capture-scroll/" class="btn-primary">
+              View App Details &amp; Tour →
+            </a>
+            <a href="capture-scroll/#install" class="btn-secondary" style="border-color: #bae6fd;">
+              📘 Quick Setup Guide
+            </a>
+            <a href="capture-scroll/capture-scroll-v1.0.0.zip" download class="btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download ZIP (45 KB)
+            </a>
+          </div>
+        </div>
+
+        <div class="app-card-media-col">
+          <div class="hub-extension-window">
+            <div class="hub-ext-header">
+              <div class="traffic-lights">
+                <span class="traffic-dot dot-close"></span>
+                <span class="traffic-dot dot-min"></span>
+                <span class="traffic-dot dot-max"></span>
+              </div>
+              <span class="hub-window-title">📸 Capture Scroll • Studio Cropper</span>
+              <span style="font-size: 0.7rem; font-weight: 700; color: #10b981; background: #064e3b; padding: 2px 8px; border-radius: 10px;">Retina 2x</span>
+            </div>
+            <div class="hub-ext-body">
+              <div class="hub-ext-doc-header">
+                <div style="width: 50px; height: 6px; background: #cbd5e1; border-radius: 3px;"></div>
+                <div style="width: 30px; height: 6px; background: #e2e8f0; border-radius: 3px;"></div>
+              </div>
+              <div class="hub-ext-doc-content">
+                <div style="width: 70%; height: 12px; background: linear-gradient(90deg, #0284c7, #6366f1); border-radius: 3px;"></div>
+                <div style="width: 90%; height: 8px; background: #f1f5f9; border-radius: 3px;"></div>
+                <div style="width: 80%; height: 8px; background: #f1f5f9; border-radius: 3px;"></div>
+                <div style="height: 55px; background: linear-gradient(135deg, #e0f2fe 0%, #ede9fe 100%); border-radius: 6px; border: 1px dashed #93c5fd; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; color: #0284c7;">
+                  📸 High-DPI Stitched Canvas
+                </div>
+                <div style="width: 85%; height: 8px; background: #f1f5f9; border-radius: 3px;"></div>
+              </div>
+
+              <!-- Crop Selection -->
+              <div class="hub-ext-crop-box">
+                <div class="hub-crop-handle hub-h-nw"></div>
+                <div class="hub-crop-handle hub-h-ne"></div>
+                <div class="hub-crop-handle hub-h-sw"></div>
+                <div class="hub-crop-handle hub-h-se"></div>
+                <div class="hub-crop-badge">1440 × 920 px</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hub-quick-specs">
+            <div class="spec-pill">
+              <span class="spec-lbl">Browsers</span>
+              <span class="spec-val">Chrome / Brave / Edge</span>
+            </div>
+            <div class="spec-pill">
+              <span class="spec-lbl">Package</span>
+              <span class="spec-val">45 KB ZIP</span>
+            </div>
+            <div class="spec-pill">
+              <span class="spec-lbl">Standard</span>
+              <span class="spec-val">Manifest V3</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Upcoming Apps Sub-grid -->
       <div class="sub-grid">
         <!-- Upcoming App 1 -->
         <article class="app-card-upcoming">
@@ -948,8 +1132,9 @@
       <div class="footer-links">
         <a href="#apps">All Apps</a>
         <a href="monkey-tools/">Monkey Tools</a>
-        <a href="https://github.com/pakkawatkh/tiffy-app" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://github.com/pakkawatkh/tiffy-app/issues" target="_blank" rel="noopener">Report Issue</a>
+        <a href="capture-scroll/">Capture Scroll</a>
+        <a href="https://github.com/pakkawatkh/tiffy-app" target="_blank" rel="noopener">GitHub Hub</a>
+        <a href="https://github.com/pakkawatkh/tiffy-extension" target="_blank" rel="noopener">GitHub Extension</a>
       </div>
     </div>
   </footer>
