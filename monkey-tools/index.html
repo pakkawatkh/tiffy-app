@@ -425,6 +425,32 @@
       }
     }
 
+    .unmute-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .unmute-badge:hover {
+      background: #0284c7;
+      border-color: #38bdf8;
+      transform: scale(1.04);
+    }
+
     /* Video & Interactive Demo Theater */
     .demo-tabs-bar {
       display: flex;
@@ -958,13 +984,16 @@
           <!-- Tab 1: App Promo Video Player -->
           <div class="demo-pane active" id="pane-promo">
             <div class="video-wrapper">
-              <video id="promo-video-player" class="demo-video" controls autoplay loop muted playsinline poster="assets/promo-poster.png?v=2.1.0">
-                <source src="assets/promo.mp4?v=2.1.0" type="video/mp4">
+              <button id="btn-unmute-promo" class="unmute-badge" onclick="toggleMutePromo()">
+                🔊 Enable Voiceover Audio
+              </button>
+              <video id="promo-video-player" class="demo-video" controls autoplay loop muted playsinline poster="assets/promo-poster.png?v=2.2.0">
+                <source src="assets/promo.mp4?v=2.2.0" type="video/mp4">
                 Your browser does not support HTML5 video.
               </video>
 
               <div class="video-info-bar">
-                <span>🔥 <strong>Official App Promo:</strong> 15-Second Overview • High-Impact Workflow Showcase</span>
+                <span>🔥 <strong>Narrated Product Promo:</strong> Official Overview with Spoken Voiceover • Click 🔊 to Listen</span>
                 <span>🍏 Universal Binary (M1/M2/M3/M4 &amp; Intel)</span>
               </div>
             </div>
@@ -1265,6 +1294,18 @@
   </footer>
 
   <script>
+    function toggleMutePromo() {
+      const vid = document.getElementById('promo-video-player');
+      const btn = document.getElementById('btn-unmute-promo');
+      if (vid) {
+        vid.muted = !vid.muted;
+        if (btn) {
+          btn.innerHTML = vid.muted ? '🔊 Enable Voiceover Audio' : '🔊 Voiceover Active (Mute)';
+          btn.style.background = vid.muted ? 'rgba(15, 23, 42, 0.85)' : '#0284c7';
+        }
+      }
+    }
+
     function switchDemoTab(tabId) {
       document.querySelectorAll('.demo-tab-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);

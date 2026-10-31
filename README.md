@@ -10,7 +10,7 @@
 - **Description**: Windows-style Clipboard History (`Win + V` / `Cmd + Shift + V`) & Smart Selection Translator for macOS.
 - **Direct Download**: [monkey-tools-Installer.dmg](monkey-tools/monkey-tools-Installer.dmg) (v2.0.1, 1.1 MB)
 - **Official Website**: [https://pakkawatkh.github.io/tiffy-app/monkey-tools/](https://pakkawatkh.github.io/tiffy-app/monkey-tools/)
-- **App Promo Video**: [Watch 15-second Promo](monkey-tools/assets/promo.mp4)
+- **Official App Promo Video**: [Watch Narrated Product Video (with Voiceover)](monkey-tools/assets/promo.mp4)
 - **Features**:
   - 📋 Windows-style Acrylic Clipboard History
   - 🌐 Dual-engine highlight Selection Translator (37 languages)
