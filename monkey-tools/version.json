@@ -1,7 +1,8 @@
 {
-  "latestVersion": "2.1.1",
+  "latestVersion": "2.1.2",
   "releaseDate": "2026-11-01",
   "downloadUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/monkey-tools-Installer.dmg",
+  "zipUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/monkey-tools.zip",
   "pageUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/",
-  "releaseNotes": "Compact inline network monitor typography (↓ 0 B/s  ↑ 0 B/s)"
+  "releaseNotes": "1-Click in-app auto-update with automatic app restart"
 }
