@@ -1,0 +1,46 @@
+name: Publish GitHub Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Monkey Tools ${{ github.ref_name }} (macOS)
+          body: |
+            ## 🐵 Monkey Tools for macOS (${{ github.ref_name }})
+
+            Supercharge your Mac workflow with Windows-style Acrylic Clipboard History and Instant Selection Translation.
+
+            ### 🌟 Key Features
+            - 📋 **Acrylic Clipboard History**: Press `⌘ + ⇧ + V` (Command + Shift + V) to search, pin, and paste any snippet instantly.
+            - 🌐 **Instant Selection Translator**: Highlight text anywhere on macOS to reveal a smart floating translation bubble supporting 37 languages.
+            - 🔊 **Voice Speech Synthesis**: High-quality instant pronunciation and audio playback.
+            - ⚡ **Pure Native Swift 6**: Ultralight (1.1 MB DMG), 0% CPU at idle, zero Electron overhead.
+            - 🔒 **100% Offline & Private**: All clipboard history and translated text stay strictly on your local Mac.
+
+            ### 📦 Download & Install
+            1. Download **`monkey-tools-Installer.dmg`** below.
+            2. Double-click the DMG and drag **Monkey Tools** into your **Applications** folder.
+            3. Launch Monkey Tools and grant Accessibility permissions on first launch.
+
+            ---
+            - 🌐 **Live Website**: [https://pakkawatkh.github.io/tiffy-app/](https://pakkawatkh.github.io/tiffy-app/)
+            - 📖 **Documentation**: [https://pakkawatkh.github.io/tiffy-app/monkey-tools/](https://pakkawatkh.github.io/tiffy-app/monkey-tools/)
+          files: |
+            monkey-tools/monkey-tools-Installer.dmg
+            assets/promo.mp4
+          draft: false
+          prerelease: false
