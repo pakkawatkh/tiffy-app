@@ -788,6 +788,151 @@
       margin-bottom: 16px;
     }
 
+    /* Installation Guide Section */
+    .install-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px auto 20px;
+    }
+    @media (max-width: 960px) {
+      .install-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+    .install-step-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+    .install-step-card:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.06);
+    }
+    .install-step-card.highlight-card {
+      border: 1.5px solid #38bdf8;
+      background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+      box-shadow: 0 8px 24px -4px rgba(14, 165, 233, 0.12);
+    }
+    .install-step-card.highlight-card:hover {
+      border-color: #0284c7;
+      box-shadow: 0 16px 32px -6px rgba(14, 165, 233, 0.2);
+    }
+    .install-card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+    }
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #0284c7;
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+    .step-badge.highlight {
+      color: #0369a1;
+      background: #e0f2fe;
+      border-color: #7dd3fc;
+    }
+    .install-step-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+    .install-step-card p {
+      color: var(--text-sub);
+      font-size: 0.94rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .step-methods {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .method-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 0.88rem;
+    }
+    .method-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-step-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #0284c7;
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+    .btn-step-download:hover {
+      background: #0369a1;
+      transform: translateY(-1px);
+    }
+    .code-snippet {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.82rem;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      word-break: break-all;
+    }
+    .btn-copy-code {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .btn-copy-code:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
     /* FAQ Section */
     .faq-grid {
       max-width: 860px;
@@ -901,6 +1046,7 @@
         <li><a href="#features">Features</a></li>
         <li><a href="#demo">Demo</a></li>
         <li><a href="#comparison">Comparison</a></li>
+        <li><a href="#install" style="color: #0284c7; font-weight: 600;">Installation</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
 
@@ -948,6 +1094,12 @@
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
           View on GitHub
+        </a>
+      </div>
+
+      <div style="margin: 14px 0 20px; display: flex; justify-content: center;">
+        <a href="#install" style="color: #0284c7; text-decoration: none; font-size: 0.92rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgba(2, 132, 199, 0.08); border-radius: 999px; transition: all 0.2s;">
+          📖 ติดตั้งง่ายใน 1 นาที • ดูวิธีเปิดใช้งานและตั้งค่าความปลอดภัย →
         </a>
       </div>
 
@@ -1246,6 +1398,96 @@
         </table>
       </div>
 
+      <!-- Installation & Quick Setup Section -->
+      <div class="section-header" id="install" style="margin-top: 90px;">
+        <div class="section-tag">Quick Setup • 1-Minute Guide</div>
+        <h2 class="section-title">How to Install &amp; Quick Setup</h2>
+        <p class="section-desc" style="font-size: 1.05rem; color: var(--text-sub);">
+          วิธีติดตั้งและเปิดใช้งานใน 3 ขั้นตอนง่าย ๆ สำหรับเครื่อง Mac
+        </p>
+      </div>
+
+      <div class="install-steps">
+        <!-- Step 1 -->
+        <div class="install-step-card">
+          <div class="step-badge">Step 1 • ติดตั้ง</div>
+          <div class="install-card-icon">📦</div>
+          <h3>1. Download &amp; Drag</h3>
+          <p>ดาวน์โหลดไฟล์ตัวติดตั้ง <strong>monkey-tools-Installer.dmg</strong> (1.1 MB) ดับเบิลคลิกเปิดไฟล์ แล้วลากไอคอน <strong>monkey-tools</strong> ไปวางในโฟลเดอร์ <strong>Applications</strong></p>
+          <div class="step-methods">
+            <a href="monkey-tools-Installer.dmg" download class="btn-step-download">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download DMG Installer (1.1 MB)
+            </a>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="install-step-card highlight-card">
+          <div class="step-badge highlight">Step 2 • ปลดล็อกความปลอดภัย</div>
+          <div class="install-card-icon">🛡️</div>
+          <h3>2. First Launch &amp; Security</h3>
+          <p>เนื่องจากเป็นแอปแจกฟรีพัฒนาอิสระ เมื่อเปิดครั้งแรก macOS Gatekeeper อาจขึ้นเตือนว่า <em>"cannot be opened because the developer cannot be verified"</em> ให้ปลดล็อกด้วยวิธีใดวิธีหนึ่ง:</p>
+          <div class="step-methods">
+            <div class="method-box">
+              <div class="method-title">
+                <span>วิธีที่ 1: ผ่าน System Settings (แนะนำ)</span>
+              </div>
+              <p style="font-size: 0.86rem; margin-bottom: 0; color: var(--text-sub);">
+                เปิดแอป 1 ครั้ง ➔ ไปที่ <strong>System Settings > Privacy &amp; Security</strong> ➔ เลื่อนลงมาที่ Security แล้วคลิก <strong>"Open Anyway"</strong> (เปิดต่อไป)
+              </p>
+            </div>
+
+            <div class="method-box">
+              <div class="method-title">
+                <span>วิธีที่ 2: ผ่าน Terminal (1 วินาที)</span>
+              </div>
+              <p style="font-size: 0.86rem; margin-bottom: 6px; color: var(--text-sub);">
+                เปิด Terminal แล้วก๊อปปี้คำสั่งนี้ไปรัน:
+              </p>
+              <div class="code-snippet">
+                <span id="cmd-text">xattr -cr /Applications/monkey-tools.app</span>
+                <button class="btn-copy-code" onclick="copyInstallCmd(this)">Copy</button>
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: #16a34a; margin-top: 2px; font-weight: 600;">
+              ✓ ปลอดภัย 100%: ปลดล็อกเฉพาะ monkey-tools ไม่กระทบระบบความปลอดภัยของเครื่อง
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="install-step-card">
+          <div class="step-badge">Step 3 • เปิดสิทธิ์ &amp; พร้อมใช้งาน</div>
+          <div class="install-card-icon">⚡</div>
+          <h3>3. Accessibility &amp; Flow</h3>
+          <p>เพื่อให้แอปสามารถดักคีย์ลัดประวัติคลิปบอร์ด และสั่ง Auto-Paste ข้อความลงในโปรแกรมอื่น ๆ ได้ทันที:</p>
+          <div class="step-methods">
+            <div class="method-box">
+              <div class="method-title">
+                <span>เปิดสิทธิ์ Accessibility</span>
+              </div>
+              <p style="font-size: 0.86rem; margin-bottom: 0; color: var(--text-sub);">
+                ไปที่ <strong>System Settings > Privacy &amp; Security > Accessibility</strong> แล้วเปิดสวิตช์ข้างชื่อ <strong>monkey-tools</strong> ให้เป็น <strong>ON (สีฟ้า)</strong>
+              </p>
+            </div>
+            <div class="method-box" style="background: #f0fdf4; border-color: #bbf7d0;">
+              <div class="method-title" style="color: #166534;">
+                <span>🎉 เริ่มใช้งานได้ทันที!</span>
+              </div>
+              <ul style="list-style: none; font-size: 0.86rem; color: #14532d; padding-left: 0; display: flex; flex-direction: column; gap: 4px;">
+                <li>• กด <strong><code>Cmd + Shift + V</code></strong> เพื่อเปิดประวัติคลิปบอร์ด</li>
+                <li>• ไฮไลต์ข้อความในแอปใดก็ได้เพื่อแปลภาษาด้วย <strong>🌐</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- FAQ Section -->
       <div class="section-header" id="faq" style="margin-top: 90px;">
         <div class="section-tag">FAQ</div>
@@ -1309,6 +1551,29 @@
   </footer>
 
   <script>
+    function copyInstallCmd(btn) {
+      const cmd = document.getElementById('cmd-text').innerText;
+      navigator.clipboard.writeText(cmd).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied! ✓';
+        btn.style.background = '#16a34a';
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.style.background = '';
+        }, 2000);
+      }).catch(() => {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = cmd;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        btn.innerText = 'Copied! ✓';
+        setTimeout(() => { btn.innerText = 'Copy'; }, 2000);
+      });
+    }
+
     function toggleMutePromo() {
       const vid = document.getElementById('promo-video-player');
       const btn = document.getElementById('btn-unmute-promo');
