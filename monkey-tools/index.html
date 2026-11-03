@@ -1099,7 +1099,7 @@
 
       <div style="margin: 14px 0 20px; display: flex; justify-content: center;">
         <a href="#install" style="color: #0284c7; text-decoration: none; font-size: 0.92rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgba(2, 132, 199, 0.08); border-radius: 999px; transition: all 0.2s;">
-          📖 ติดตั้งง่ายใน 1 นาที • ดูวิธีเปิดใช้งานและตั้งค่าความปลอดภัย →
+          📖 Easy 1-minute installation &amp; security guide →
         </a>
       </div>
 
@@ -1403,17 +1403,17 @@
         <div class="section-tag">Quick Setup • 1-Minute Guide</div>
         <h2 class="section-title">How to Install &amp; Quick Setup</h2>
         <p class="section-desc" style="font-size: 1.05rem; color: var(--text-sub);">
-          วิธีติดตั้งและเปิดใช้งานใน 3 ขั้นตอนง่าย ๆ สำหรับเครื่อง Mac
+          Get up and running on macOS in 3 simple steps.
         </p>
       </div>
 
       <div class="install-steps">
         <!-- Step 1 -->
         <div class="install-step-card">
-          <div class="step-badge">Step 1 • ติดตั้ง</div>
+          <div class="step-badge">Step 1 • Install</div>
           <div class="install-card-icon">📦</div>
           <h3>1. Download &amp; Drag</h3>
-          <p>ดาวน์โหลดไฟล์ตัวติดตั้ง <strong>monkey-tools-Installer.dmg</strong> (1.1 MB) ดับเบิลคลิกเปิดไฟล์ แล้วลากไอคอน <strong>monkey-tools</strong> ไปวางในโฟลเดอร์ <strong>Applications</strong></p>
+          <p>Download <strong>monkey-tools-Installer.dmg</strong> (1.1 MB), double-click to open it, and drag the <strong>monkey-tools</strong> icon into the <strong>Applications</strong> shortcut.</p>
           <div class="step-methods">
             <a href="monkey-tools-Installer.dmg" download class="btn-step-download">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1428,26 +1428,26 @@
 
         <!-- Step 2 -->
         <div class="install-step-card highlight-card">
-          <div class="step-badge highlight">Step 2 • ปลดล็อกความปลอดภัย</div>
+          <div class="step-badge highlight">Step 2 • First-Launch Security</div>
           <div class="install-card-icon">🛡️</div>
-          <h3>2. First Launch &amp; Security</h3>
-          <p>เนื่องจากเป็นแอปแจกฟรีพัฒนาอิสระ เมื่อเปิดครั้งแรก macOS Gatekeeper อาจขึ้นเตือนว่า <em>"cannot be opened because the developer cannot be verified"</em> ให้ปลดล็อกด้วยวิธีใดวิธีหนึ่ง:</p>
+          <h3>2. Gatekeeper Notice</h3>
+          <p>Because monkey-tools is free, open, and independently maintained without an expensive Apple Developer subscription ($99/yr), macOS Gatekeeper may show a warning (<em>"cannot be opened because the developer cannot be verified"</em>). Choose either quick option:</p>
           <div class="step-methods">
             <div class="method-box">
               <div class="method-title">
-                <span>วิธีที่ 1: ผ่าน System Settings (แนะนำ)</span>
+                <span>Option A: System Settings (Recommended)</span>
               </div>
               <p style="font-size: 0.86rem; margin-bottom: 0; color: var(--text-sub);">
-                เปิดแอป 1 ครั้ง ➔ ไปที่ <strong>System Settings > Privacy &amp; Security</strong> ➔ เลื่อนลงมาที่ Security แล้วคลิก <strong>"Open Anyway"</strong> (เปิดต่อไป)
+                Open the app once ➔ Go to <strong>System Settings > Privacy &amp; Security</strong> ➔ Scroll down to <strong>Security</strong> ➔ Click <strong>"Open Anyway"</strong>.
               </p>
             </div>
 
             <div class="method-box">
               <div class="method-title">
-                <span>วิธีที่ 2: ผ่าน Terminal (1 วินาที)</span>
+                <span>Option B: Terminal (1 Second)</span>
               </div>
               <p style="font-size: 0.86rem; margin-bottom: 6px; color: var(--text-sub);">
-                เปิด Terminal แล้วก๊อปปี้คำสั่งนี้ไปรัน:
+                Open Terminal and paste this one-liner command:
               </p>
               <div class="code-snippet">
                 <span id="cmd-text">xattr -cr /Applications/monkey-tools.app</span>
@@ -1455,33 +1455,33 @@
               </div>
             </div>
             <p style="font-size: 0.8rem; color: #16a34a; margin-top: 2px; font-weight: 600;">
-              ✓ ปลอดภัย 100%: ปลดล็อกเฉพาะ monkey-tools ไม่กระทบระบบความปลอดภัยของเครื่อง
+              ✓ 100% Safe: Unblocks only monkey-tools without compromising macOS security.
             </p>
           </div>
         </div>
 
         <!-- Step 3 -->
         <div class="install-step-card">
-          <div class="step-badge">Step 3 • เปิดสิทธิ์ &amp; พร้อมใช้งาน</div>
+          <div class="step-badge">Step 3 • Permissions &amp; Ready</div>
           <div class="install-card-icon">⚡</div>
           <h3>3. Accessibility &amp; Flow</h3>
-          <p>เพื่อให้แอปสามารถดักคีย์ลัดประวัติคลิปบอร์ด และสั่ง Auto-Paste ข้อความลงในโปรแกรมอื่น ๆ ได้ทันที:</p>
+          <p>To enable instant auto-pasting (<code>Cmd + V</code>) and global hotkey clipboard history:</p>
           <div class="step-methods">
             <div class="method-box">
               <div class="method-title">
-                <span>เปิดสิทธิ์ Accessibility</span>
+                <span>Grant Accessibility Permission</span>
               </div>
               <p style="font-size: 0.86rem; margin-bottom: 0; color: var(--text-sub);">
-                ไปที่ <strong>System Settings > Privacy &amp; Security > Accessibility</strong> แล้วเปิดสวิตช์ข้างชื่อ <strong>monkey-tools</strong> ให้เป็น <strong>ON (สีฟ้า)</strong>
+                Go to <strong>System Settings > Privacy &amp; Security > Accessibility</strong> and toggle <strong>monkey-tools</strong> to <strong>ON (Blue)</strong>.
               </p>
             </div>
             <div class="method-box" style="background: #f0fdf4; border-color: #bbf7d0;">
               <div class="method-title" style="color: #166534;">
-                <span>🎉 เริ่มใช้งานได้ทันที!</span>
+                <span>🎉 Ready to use!</span>
               </div>
               <ul style="list-style: none; font-size: 0.86rem; color: #14532d; padding-left: 0; display: flex; flex-direction: column; gap: 4px;">
-                <li>• กด <strong><code>Cmd + Shift + V</code></strong> เพื่อเปิดประวัติคลิปบอร์ด</li>
-                <li>• ไฮไลต์ข้อความในแอปใดก็ได้เพื่อแปลภาษาด้วย <strong>🌐</strong></li>
+                <li>• Press <strong><code>Cmd + Shift + V</code></strong> anywhere to open clipboard history.</li>
+                <li>• Highlight any text in any app to translate with <strong>🌐</strong>.</li>
               </ul>
             </div>
           </div>
