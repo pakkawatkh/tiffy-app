@@ -1,8 +1,8 @@
 {
-  "latestVersion": "2.1.5",
+  "latestVersion": "2.1.6",
   "releaseDate": "2026-11-05",
   "downloadUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/monkey-tools-Installer.dmg",
   "zipUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/monkey-tools.zip",
   "pageUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/",
-  "releaseNotes": "Improve shortcut display with '+' separator and proper spacing (⌘ + ⇧ + V)"
+  "releaseNotes": "Prevent translation bubble from popping up when selecting Desktop apps/icons or Finder files"
 }
