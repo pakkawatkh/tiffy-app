@@ -1,8 +1,8 @@
 {
-  "latestVersion": "2.1.4",
-  "releaseDate": "2026-11-01",
+  "latestVersion": "2.1.5",
+  "releaseDate": "2026-11-05",
   "downloadUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/monkey-tools-Installer.dmg",
   "zipUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/monkey-tools.zip",
   "pageUrl": "https://pakkawatkh.github.io/tiffy-app/monkey-tools/",
-  "releaseNotes": "Auto-updater verification release (v2.1.4)"
+  "releaseNotes": "Improve shortcut display with '+' separator and proper spacing (⌘ + ⇧ + V)"
 }
